@@ -5,17 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/skins/color-1.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/CSS/style.css">
+    <link rel="stylesheet" href="assets/CSS/skins/color-1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="CSS/skins/color-1.css" class="alternate-style" title="color-1" disabled>
-    <link rel="stylesheet" href="CSS/skins/color-2.css" class="alternate-style" title="color-2" disabled>
-    <link rel="stylesheet" href="CSS/skins/color-3.css" class="alternate-style" title="color-3" disabled>
-    <link rel="stylesheet" href="CSS/skins/color-4.css" class="alternate-style" title="color-4" disabled>
-    <link rel="stylesheet" href="CSS/skins/color-5.css" class="alternate-style" title="color-5" disabled>
-    <link rel="stylesheet" href="CSS/style-switcher.css">
+    <link rel="stylesheet" href="assets/CSS/skins/color-1.css" class="alternate-style" title="color-1" disabled>
+    <link rel="stylesheet" href="assets/CSS/skins/color-2.css" class="alternate-style" title="color-2" disabled>
+    <link rel="stylesheet" href="assets/CSS/skins/color-3.css" class="alternate-style" title="color-3" disabled>
+    <link rel="stylesheet" href="assets/CSS/skins/color-4.css" class="alternate-style" title="color-4" disabled>
+    <link rel="stylesheet" href="assets/CSS/skins/color-5.css" class="alternate-style" title="color-5" disabled>
+    <link rel="stylesheet" href="assets/CSS/style-switcher.css">
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        function Mail() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("Email").value;
+            let subject = document.getElementById("Subject").value;
+            let mobilenumber = document.getElementById("Mobilenumber").value;
+            let message = document.getElementById("Message").value;
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "salvir323@gmail.com",
+                Password: "42F8CFD8BB41F35AE451509AFF83A5BA24E6",               
+                To: 'salvir323@gmail.com',
+                From: "salvir323@gmail.com",
+                Subject: "Mail From Website",
+                Body:'One New Mail Has Recieved !! <br/> Name : '+name+'<br/> User Email : '+Email+' Mobile Number :'+Mobilenumber+'<br/> Subject :'+Subject+ '</br> Message' +Message+''
+        }).then(
+                message => alert(message)
+            );
+        }
+    </script>
 
 </head>
 
@@ -23,7 +45,7 @@
     <div class="main-container">
         <div class="aside">
             <div class="logo">
-                <a href="index.html"> <span> R</span>D </a>
+                <a href="#"> <span> R</span>D </a>
             </div>
             <div class="nav-toggler">
                 <span>
@@ -31,7 +53,7 @@
                 </span>
             </div>
             <ul class="nav">
-                <li><a href="index.html"> <i class="fa fa-home"></i>Home</a></li>
+                <li><a href="Index.html"> <i class="fa fa-home"></i>Home</a></li>
                 <li><a href="about.html"> <i class="fa fa-user"></i>About</a></li>
                 <li><a href="services.html"> <i class="fa fa-list"></i>Services</a></li>
                 <li><a href="portfolio.html"> <i class="fa fa-briefcase"></i>Portfolio</a></li>
@@ -112,46 +134,61 @@
                     <h3 class="contact-title padd-15"> Send Me An Email ?</h3>
                     <h4 class="contact-sub-title padd-15">I will Definately Reply</h4>
                     <!--Contact Form-->
-                    <div class="row">
-                        <div class="contact-form padd-15">
+                    <form onsubmit="Mail(); reset(); return false;">
                             <div class="row">
-                                <div class="form-item col-6 padd-15">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Name : ">
+                            <div class="contact-form padd-15">
+                                <div class="row">
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <input type="text" name="name" class="form-control" placeholder="Name : "
+                                                id="name">
+                                        </div>
+                                    </div>
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <input type="email" name="Email" id="Email" class="form-control"
+                                                placeholder="Email :">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-item col-6 padd-15">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email :">
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <input type="text" name="Mobilenumber" id="Mobilenumber"
+                                                class="form-control" placeholder="Mobilenumber :">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <input type="text" name="Subject" id="Subject" class="form-control"
+                                                placeholder="Subject :">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <textarea name="" class="form-control" name="Message" id="Message"
+                                                placeholder="Message :"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <button type="submit" name="submit" class="btn"> Send Message</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Subject :">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <textarea name="" class="form-control" id="" placeholder="Message :"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <button type="submit" class="btn"> Send Message</button>
-                                </div>
-                            </div>
-
-
                         </div>
-                    </div>
+                        </form>
+
+
+
                 </div>
             </section>
-
+         
 
         </div>
 
@@ -180,8 +217,8 @@
     <!--main container Start-->
     <!-- main container End-->
     <!-- Java Script-->
-    <script src="JS/script.js"></script>
-    <script src="JS/style-switcher.js">
+    <script src="assets/JS/script.js"></script>
+    <script src="assets/JS/style-switcher.js">
 
     </script>
 </body>
